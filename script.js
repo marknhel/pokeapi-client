@@ -4,7 +4,7 @@ var allResults = [];
 
 function setImage(img, name, id){
 	const eid = "#img" + id;
-	$(eid).append('<img src="'+img+'" alt="'+name+'" >');
+	$(eid).append('<img class="pokemon-img" src="'+img+'" alt="'+name+'" >');
 }
 
 function setName(name, id){
@@ -14,7 +14,7 @@ function setName(name, id){
 
 function setStat(name, stat, id){
 	const eid = "#pokemon-head" + id;
-	$(eid).append('<div><span id="" class="info-label" >'+name.toUpperCase()+' : '+stat+'</span></div>');
+	$(eid).append('<div class="stat-info"><p><img class="stat-img" src="./img/stat-img/'+name+'.png"></p><p><span id="" class="info-label" >'+stat+'</span></p></div>');
 }
 
 function setTypes(type, id){
@@ -113,7 +113,6 @@ function getPokemonByName(value, index, array){
 		$("#pokemons").append('<figure class="pokemon" ><div class="pokemon-info"><div class="stats"><div id="img'+id+'" class="pokemon-img"></div></div><div id="pokemon-head'+id+'" class="pokemon-head"></div></div><div class="description" ><p class="desc-head">Type</p><p id="type'+id+'" class="type"></p></div></figure>');
 		setImage(img, name, id);
 		setName(name, id);
-		console.log(data.id + " : " + data.name + " : " + img);
 
 		for ( let i = 0; i < stats.length; i++){
 			setStat(stats[i].stat.name ,stats[i].base_stat, id);
